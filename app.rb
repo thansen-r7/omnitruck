@@ -340,9 +340,9 @@ class Omnitruck < Sinatra::Base
                      end
                    end
 
-    # SLES/SUSE requests may need to be modified before returning metadata.
+    # SLES/openSUSE requests may need to be modified before returning metadata.
     # If s390x architecture is requested we never modify the metadata.
-    if %{sles suse}.include?(current_platform) && current_arch != "s390x"
+    if %{sles suse opensuseleap}.include?(current_platform) && current_arch != "s390x"
       current_platform = 'sles'
       # Here we map specific project versions that started building
       # native SLES packages. This is used to determine which projects
